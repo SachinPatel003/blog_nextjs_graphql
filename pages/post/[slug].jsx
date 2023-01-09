@@ -3,7 +3,6 @@ import { PostDetail, Categories, PostWidget, Author } from "../../components";
 import { getPosts, getPostDetails } from "../../services";
 
 const PostDetails = ({ post }) => {
-  console.log(">", post);
   return (
     <>
       <div className="container mx-auto px-10 mb-8">
@@ -45,6 +44,6 @@ export async function getStaticPaths() {
   const posts = await getPosts();
   return {
     paths: posts.map(({ node: { slug } }) => ({ params: { slug } })),
-    fallback: true,
+    fallback: false,
   };
 }
